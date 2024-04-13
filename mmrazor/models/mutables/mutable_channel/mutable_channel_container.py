@@ -115,7 +115,7 @@ class MutableChannelContainer(BaseMutableChannel):
         for start, end in copy.copy(self.mutable_channels):
             if last_end < start:
                 self.register_mutable(
-                    SimpleMutableChannel(last_end - start), last_end, start)
+                    SimpleMutableChannel(start - last_end), last_end, start)
             last_end = end
         if last_end < self.num_channels:
             self.register_mutable(
